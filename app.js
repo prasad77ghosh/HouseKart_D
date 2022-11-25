@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 app.use(
   cors({
-    origin: "https://housekart-mern-ecom-prasad.cyclic.app/",
+    origin: "https://housekart-mern-ecom-prasad.cyclic.app",
     credentials: true,
   })
 );
