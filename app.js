@@ -11,13 +11,9 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "config/config.env" });
 }
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
 
-app.use(cors(corsOptions));
+
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ limit: "20mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -29,12 +25,10 @@ const usersRoutes = require("./routes/userRoutes");
 const ordersRoutes = require("./routes/orderRoutes");
 const paymentRoute = require("./routes/paymentRoute");
 
-
 app.use("/api/v1", productsRoutes);
 app.use("/api/v1", usersRoutes);
 app.use("/api/v1", ordersRoutes);
 app.use("/api/v1", paymentRoute);
-
 
 // ----------------------- Deployment ---------------------//
 app.use(express.static(path.join(__dirname, "./client/build")));
