@@ -6,6 +6,9 @@ const errorMiddleware = require("./middlewares/error");
 const bodyParser = require("body-parser");
 const fileupload = require("express-fileupload");
 const app = express();
+
+
+
 //config
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "config/config.env" });
@@ -13,7 +16,9 @@ if (process.env.NODE_ENV !== "production") {
 
 
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(
+  cors({ origin: "http://confused-tunic-dog.cyclic.app/", credentials: true })
+);
 app.use(express.json({ limit: "20mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
