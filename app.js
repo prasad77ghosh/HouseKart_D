@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "production") {
 
 
 app.use(
-  cors({ origin: "http://confused-tunic-dog.cyclic.app/", credentials: true })
+  cors({ origin: "https://confused-tunic-dog.cyclic.app/", credentials: true })
 );
 app.use(express.json({ limit: "20mb" }));
 app.use(cookieParser());
