@@ -7,21 +7,12 @@ const bodyParser = require("body-parser");
 const fileupload = require("express-fileupload");
 const app = express();
 
-
-
 //config
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "config/config.env" });
 }
 
-
-
-app.use(
-  cors({
-    origin: "https://housekart-mern-ecom-prasad.cyclic.app",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json({ limit: "20mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
