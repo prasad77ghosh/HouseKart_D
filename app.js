@@ -17,7 +17,10 @@ if (process.env.NODE_ENV !== "production") {
 
 
 app.use(
-  cors({ origin: "*", credentials: true })
+  cors({
+    origin: "https://housekart-mern-ecom-prasad.cyclic.app/",
+    credentials: true,
+  })
 );
 app.use(express.json({ limit: "20mb" }));
 app.use(cookieParser());
